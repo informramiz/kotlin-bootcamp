@@ -5,14 +5,19 @@ fun main(args: Array<String>) {
 }
 
 fun testWhatShouldIDoToday() {
-    println(whatShouldIDoToday("happy"))
+    println(whatShouldIDoToday())
 }
 
-fun whatShouldIDoToday(mood: String, weather: String = "sunny", temperature: Int = 24) = when {
+fun whatShouldIDoToday(mood: String = getMoodStringFromUser(), weather: String = "sunny", temperature: Int = 24) = when {
     shouldGoForAWalk(mood, weather) -> "go for a walk"
     shouldStayInBed(mood, weather, temperature) -> "stay in bed"
     shouldGoSwimming(temperature) -> "go swimming"
     else -> "Stay at home and read"
+}
+
+fun getMoodStringFromUser(): String {
+    print("Enter mode string: ")
+    return readLine()!!
 }
 
 private fun shouldGoSwimming(temperature: Int) = temperature > 35
