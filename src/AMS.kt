@@ -1,7 +1,21 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    testWhatShouldIDoToday()
+    testFilters()
+}
+
+fun testFilters() {
+    val spices = listOf("curry", "pepper", "cayenne", "ginger", "red curry", "green curry", "red pepper" )
+
+    val filteredSpices1 = spices.filter{it.contains("curry")}
+            .sortedBy {it.length}
+    println("1. Filtered spices: $filteredSpices1")
+
+    val filteredSpices2 = spices.filter { it.startsWith("c") && it.endsWith("e") }
+    println("2. Filtered spices: $filteredSpices2")
+
+    val filteredSpices3 = spices.filterIndexed({index, string -> index < 3 && string.startsWith("c")})
+    println("3. Filtered spices: $filteredSpices3")
 }
 
 fun testWhatShouldIDoToday() {
