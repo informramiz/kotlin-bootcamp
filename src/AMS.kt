@@ -1,7 +1,12 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    testLambdas()
+    testFunctionTypes()
+}
+
+fun testFunctionTypes() {
+    val waterFilter: (Int) -> Int = {it -> it / 2}
+    println(waterFilter(22))
 }
 
 fun testLambdas() {
