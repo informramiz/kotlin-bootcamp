@@ -1,7 +1,8 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    feedTheFish()
+    val fortune = getFortuneCookie()
+    println("Your fortune is: $fortune")
 }
 
 fun getFortuneCookie(): String {
@@ -15,11 +16,15 @@ fun getFortuneCookie(): String {
             "Treasure your friends because they are your greatest fortune."
     )
 
-    print("Enter your birthday: ")
-    val birthdayStr = readLine()
-    val birthday = birthdayStr?.toIntOrNull() ?: 1
+    val birthday = getBirthday()
     val remainder = birthday % fortunes.size
     return fortunes[remainder]
+}
+
+private fun getBirthday(): Int {
+    print("Enter your birthday: ")
+    val birthdayStr = readLine()
+    return birthdayStr?.toIntOrNull() ?: 1
 }
 
 fun feedTheFish() {
