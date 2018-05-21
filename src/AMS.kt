@@ -1,7 +1,15 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    testFunctionTypes()
+    testHigherOrderFunctions()
+}
+
+fun testHigherOrderFunctions() {
+    println(higherOrderFunction(10) {it -> it * 3})
+}
+
+fun higherOrderFunction(value: Int, operation: (Int) -> Int): Int {
+    return operation(value)
 }
 
 fun testFunctionTypes() {
