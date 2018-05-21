@@ -1,10 +1,23 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    println(canAddFish(10.0, listOf(3,3,3)))
-    println(canAddFish(8.0, listOf(2,2,2), hasDecorations = false))
-    println(canAddFish(9.0, listOf(1,1,3), 3))
-    println(canAddFish(10.0, listOf(), 7, true))
+    testWhatShouldIDoToday()
+}
+
+fun testWhatShouldIDoToday() {
+    println(whatShouldIDoToday("happy"))
+}
+
+fun whatShouldIDoToday(mood: String, weather: String = "sunny", temperature: Int = 24) = when {
+    mood == "happy" && weather == "sunny" -> "go for a walk"
+    else -> "Stay at home and read"
+}
+
+fun testAddFish() {
+    println(canAddFish(10.0, listOf(3,3,3))) // false
+    println(canAddFish(8.0, listOf(2,2,2), hasDecorations = false)) //true
+    println(canAddFish(9.0, listOf(1,1,3), 3)) //false
+    println(canAddFish(10.0, listOf(), 7, true)) //true
 }
 
 fun canAddFish(tankSize: Double,
