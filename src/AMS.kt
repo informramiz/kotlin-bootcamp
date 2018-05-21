@@ -1,8 +1,19 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    val fortune = getFortuneCookie()
+    printFortune()
+}
+
+fun printFortune() {
+    val day = getBirthday();
+    val fortune = getFortune(day)
     println("Your fortune is: $fortune")
+}
+
+fun getFortune(day: Int) = when(day) {
+    in 0..7 -> "Take it easy and enjoy life!"
+    in 28..31 -> "You will have a great day!"
+    else -> "Treasure your friends because they are your greatest fortune."
 }
 
 fun getFortuneCookie(): String {
