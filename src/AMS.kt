@@ -1,7 +1,7 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    println(getFortuneCookie())
+    feedTheFish()
 }
 
 fun getFortuneCookie(): String {
@@ -24,13 +24,24 @@ fun getFortuneCookie(): String {
 
 fun feedTheFish() {
     val day = randomDay();
-    val food = "pellets";
+    val food = fishFood(day);
     println("Today is $day and the fish eat $food")
 }
 
 fun randomDay(): String {
     val days = listOf("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
     return days[Random().nextInt(days.size)];
+}
+
+fun fishFood(day: String) = when(day) {
+    "Monday" -> "flakes"
+    "Tuesday" -> "pellets"
+    "Wednesday" -> "redworms"
+    "Thursday" -> "granules"
+    "Friday"   -> "mosquitoes"
+    "Saturday" -> "lettuce"
+    "Sunday" -> "plankton"
+    else -> "fasting"
 }
 
 fun printGreetingMsg(args: Array<String>) {
