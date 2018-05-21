@@ -1,7 +1,13 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    testFilters()
+    testLambdas()
+}
+
+fun testLambdas() {
+    val dirty = 20
+    val waterFilter = {it: Int -> it / 2}
+    println(waterFilter(dirty))
 }
 
 fun testFilters() {
