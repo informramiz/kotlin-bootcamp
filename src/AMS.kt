@@ -1,7 +1,11 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    println("Hello ${args[0]}!")
+    printGreetingMsg(args)
+}
+
+fun printGreetingMsg(args: Array<String>) {
+    println("Good ${if(args[0].toInt() < 12) "morning" else "night, Kotlin"}")
 }
 
 fun dayOfWeek() {
