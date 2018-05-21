@@ -1,8 +1,26 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    swim()
-    swim(speed = "slow")
+    println(canAddFish(10.0, listOf(3,3,3)))
+    println(canAddFish(8.0, listOf(2,2,2), hasDecorations = false))
+    println(canAddFish(9.0, listOf(1,1,3), 3))
+    println(canAddFish(10.0, listOf(), 7, true))
+}
+
+fun canAddFish(tankSize: Double,
+               currentFishesLengths: List<Int>,
+               fishToAddSize: Int = 2,
+               hasDecorations: Boolean = true): Boolean {
+    //allowed fish length is = 1 inch of fish per gallon of water
+
+    //if tank has decorations then only 80% of the tank can be filled with fishes
+    val validTankSize = if (hasDecorations) tankSize.times(0.8) else tankSize
+    //remove the already fishes in tank lengths (inches) from valid tank size
+    val availableTankSize = validTankSize - currentFishesLengths.sum()
+
+    //now if new fish size (inches) is greater than or equal to available tank size
+    //then we can fit the fish
+    return availableTankSize >= fishToAddSize
 }
 
 fun swim(speed: String = "fast") {
