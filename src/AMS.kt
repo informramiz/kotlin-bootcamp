@@ -9,9 +9,18 @@ fun testWhatShouldIDoToday() {
 }
 
 fun whatShouldIDoToday(mood: String, weather: String = "sunny", temperature: Int = 24) = when {
-    mood == "happy" && weather == "sunny" -> "go for a walk"
+    shouldGoForAWalk(mood, weather) -> "go for a walk"
+    shouldStayInBed(mood, weather, temperature) -> "stay in bed"
+    shouldGoSwimming(temperature) -> "go swimming"
     else -> "Stay at home and read"
 }
+
+private fun shouldGoSwimming(temperature: Int) = temperature > 35
+
+private fun shouldStayInBed(mood: String, weather: String, temperature: Int) =
+        mood == "sad" && weather == "rainy" && temperature == 0
+
+private fun shouldGoForAWalk(mood: String, weather: String) = mood == "happy" && weather == "sunny"
 
 fun testAddFish() {
     println(canAddFish(10.0, listOf(3,3,3))) // false
