@@ -1,7 +1,12 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    printFortune()
+    swim()
+    swim(speed = "slow")
+}
+
+fun swim(speed: String = "fast") {
+    println("Fish is swimming $speed")
 }
 
 fun printFortune() {
