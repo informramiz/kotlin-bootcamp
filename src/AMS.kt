@@ -1,7 +1,17 @@
 import java.util.*
 
 fun main(args: Array<String>) {
-    testHigherOrderFunctions()
+    testLambdasFunctionTypesCombined()
+}
+
+fun testLambdasFunctionTypesCombined() {
+    val rollDice = {it: Int -> if (it == 0) 0 else 1 + Random().nextInt(it)}
+    val rollDice2: (Int) -> Int = {it -> if (it == 0) 0 else 1 + Random().nextInt(it)}
+    gamePlay(12, rollDice2)
+}
+
+fun gamePlay(diceSides: Int, rollDiceOperation: (Int) -> Int) {
+    println("Roll Dice: " + rollDiceOperation(diceSides))
 }
 
 fun testHigherOrderFunctions() {
